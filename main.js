@@ -7,12 +7,14 @@ const sizes = {
 };
 
 const speedDown = 300;
+const totalTime = 30000;
 
 const gameStartDiv = document.querySelector("#gameStartDiv");
 const gameStartBtn = document.querySelector("#gameStartBtn");
 const gameEndDiv = document.querySelector("#gameEndDiv");
 const gameWinLoseSpan = document.querySelector("#gameWinLoseSpan");
 const gameEndScoreSpan = document.querySelector("#gameEndScoreSpan");
+const gameRefreshBtn = document.querySelector("#gameRefreshBtn");
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -90,7 +92,7 @@ class GameScene extends Phaser.Scene {
       fill: "#000000",
     });
 
-    this.timedEvent = this.time.delayedCall(30000, this.gameOver, [], this);
+    this.timedEvent = this.time.delayedCall(totalTime, this.gameOver, [], this);
 
     this.emitter = this.add.particles(0, 0, "money", {
       speed: 100,
@@ -178,4 +180,8 @@ const game = new Phaser.Game(config);
 gameStartBtn.addEventListener("click", () => {
   gameStartDiv.style.display = "none";
   game.scene.resume("scene-game");
+});
+
+gameRefreshBtn.addEventListener("click", () => {
+  window.location.reload();
 });

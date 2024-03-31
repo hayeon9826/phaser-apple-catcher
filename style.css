@@ -71,7 +71,8 @@ main {
   display: none;
 }
 
-#gameStartBtn {
+#gameStartBtn,
+#gameRefreshBtn {
   display: inline-block;
   width: 100px;
   padding: 8px 15px;
@@ -81,7 +82,8 @@ main {
   border-radius: 10px;
 }
 
-#gameStartBtn p {
+#gameStartBtn p,
+#gameRefreshBtn p {
   margin-top: 0;
 }
 
